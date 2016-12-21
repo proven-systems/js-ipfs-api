@@ -76,11 +76,9 @@ function spawnEphemeralNode (callback) {
           // Do not use discovery to avoid connecting to
           // other nodes by mistake
           Discovery: {},
-          API: {
-            'HTTPHeaders.Access-Control-Allow-Origin': ['*'],
-            'HTTPHeaders.Access-Control-Allow-Credentials': ['true'],
-            'HTTPHeaders.Access-Control-Allow-Methods': ['PUT', 'POST', 'GET']
-          }
+          'API.HTTPHeaders.Access-Control-Allow-Origin': ['*'],
+          'API.HTTPHeaders.Access-Control-Allow-Credentials': ['true'],
+          'API.HTTPHeaders.Access-Control-Allow-Methods': ['PUT', 'POST', 'GET']
         }
 
         eachSeries(Object.keys(configValues), (configKey, cb) => {
