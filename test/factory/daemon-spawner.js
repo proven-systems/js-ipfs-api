@@ -1,7 +1,7 @@
 'use strict'
 
 // const defaultConfig = require('./default-config.json')
-const ipfsd = require('@haad/ipfsd-ctl')
+const ipfsd = require('ipfsd-ctl')
 const series = require('async/series')
 const eachSeries = require('async/eachSeries')
 const once = require('once')

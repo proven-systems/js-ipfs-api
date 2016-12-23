@@ -5,7 +5,7 @@
 const gulp = require('gulp')
 const fs = require('fs')
 const path = require('path')
-const ipfsd = require('@haad/ipfsd-ctl')
+const ipfsd = require('ipfsd-ctl')
 const eachSeries = require('async/eachSeries')
 const parallel = require('async/parallel')
 
