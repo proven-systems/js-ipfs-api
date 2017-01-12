@@ -45,7 +45,7 @@
     "pump": "^1.0.2",
     "qs": "^6.3.0",
     "readable-stream": "1.1.14",
-    "stream-http": "^2.5.0",
+    "stream-http": "^2.6.1",
     "streamifier": "^0.1.1",
     "tar-stream": "^1.5.2"
   },
