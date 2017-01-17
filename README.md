@@ -72,7 +72,7 @@ var ipfs = ipfsAPI('localhost', '5001', {protocol: 'http'}) // leaving out the a
 var ipfs = ipfsAPI('/ip4/127.0.0.1/tcp/5001')
 
 // or using options
-var ipfs = ipfsAPI({host: 'localhost', port: '5001', procotol: 'http'})
+var ipfs = ipfsAPI({host: 'localhost', port: '5001', protocol: 'http'})
 ```
 
 ### In a web browser through Browserify
@@ -150,10 +150,13 @@ Complete documentation for these methods is coming with: https://github.com/ipfs
 
 > `ipfs.util.addFromFs(path, option, callback)`
 
-Reads a file from `path` on the filesystem  and adds it to IPFS. If `path` is a directory, use option `{ recursive: true }` to add the directory and all its sub-directories.
+Reads a file or folder from `path` on the filesystem  and adds it to IPFS. Options:
+- **recursive**: If `path` is a directory, use option `{ recursive: true }` to add the directory and all its sub-directories.
+  - **ignore**: To exclude fileglobs from the directory, use option `{ ignore: ['ignore/this/folder/**', 'and/this/file'] }`.
+  - **hidden**: hidden/dot files (files or folders starting with a `.`, for example, `.git/`) are not included by default. To add them, use the option `{ hidden: true }`. 
 
 ```JavaScript
-ipfs.util.addFromFs('path/to/a/file', { recursive: true }, (err, result) => {
+ipfs.util.addFromFs('path/to/a/folder', { recursive: true , ignore: ['subfolder/to/ignore/**']}, (err, result) => {
   if (err) {
     throw err
   }
