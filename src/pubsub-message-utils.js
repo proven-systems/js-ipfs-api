@@ -1,5 +1,7 @@
 'use strict'
 
+const bs58 = require('bs58')
+
 module.exports = {
   deserialize (data, enc = 'json') {
     enc = enc ? enc.toLowerCase() : null
@@ -25,8 +27,7 @@ function deserializeFromBase64 (obj) {
   }
 
   return {
-    // TODO: broken see https://github.com/ipfs/go-ipfs/issues/3522
-    from: obj.from,
+    from: bs58.encode(new Buffer(obj.from, 'base64')).toString(),
     seqno: new Buffer(obj.seqno, 'base64'),
     data: new Buffer(obj.data, 'base64'),
     topicCIDs: obj.topicIDs || obj.topicCIDs
