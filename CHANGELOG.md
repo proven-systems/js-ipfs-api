@@ -1,3 +1,23 @@
+<a name="12.1.7"></a>
+## [12.1.7](https://github.com/ipfs/js-ipfs-api/compare/v12.1.6...v12.1.7) (2017-02-09)
+
+
+
+<a name="12.1.6"></a>
+## [12.1.6](https://github.com/ipfs/js-ipfs-api/compare/v12.1.5...v12.1.6) (2017-02-01)
+
+
+
+<a name="12.1.5"></a>
+## [12.1.5](https://github.com/ipfs/js-ipfs-api/compare/v12.1.4...v12.1.5) (2017-01-31)
+
+
+### Bug Fixes
+
+* lint ([dfb07a3](https://github.com/ipfs/js-ipfs-api/commit/dfb07a3))
+
+
+
 <a name="12.1.4"></a>
 ## [12.1.4](https://github.com/ipfs/js-ipfs-api/compare/v12.1.3...v12.1.4) (2017-01-11)
 
