@@ -75,7 +75,12 @@ function spawnEphemeralNode (callback) {
           Bootstrap: [],
           // Do not use discovery to avoid connecting to
           // other nodes by mistake
-          Discovery: {},
+          Discovery: {
+            MDNS: {
+              Enabled: false,
+              Interval: 10
+            }
+          },
           'API.HTTPHeaders.Access-Control-Allow-Origin': ['*'],
           'API.HTTPHeaders.Access-Control-Allow-Credentials': ['true'],
           'API.HTTPHeaders.Access-Control-Allow-Methods': ['PUT', 'POST', 'GET']
@@ -85,7 +90,13 @@ function spawnEphemeralNode (callback) {
           node.setConfig(`${configKey}`, JSON.stringify(configValues[configKey]), cb)
         }, cb)
       },
-      (cb) => node.startDaemon(['--enable-pubsub-experiment'], cb)
+      (cb) => {
+        if (process.env.TEST_PUBSUB) {
+          node.startDaemon(['--enable-pubsub-experiment'], cb)
+        } else {
+          node.startDaemon([], cb)
+        }
+      }
     ], (err) => {
       if (err) {
         return callback(err)

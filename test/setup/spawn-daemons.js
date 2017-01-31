@@ -27,7 +27,12 @@ function startDisposableDaemons (callback) {
 
       const configValues = {
         Bootstrap: [],
-        Discovery: {},
+        Discovery: {
+          MDNS: {
+            Enabled: false,
+            Interval: 10
+          }
+        },
         'API.HTTPHeaders.Access-Control-Allow-Origin': ['*'],
         'API.HTTPHeaders.Access-Control-Allow-Credentials': ['true'],
         'API.HTTPHeaders.Access-Control-Allow-Methods': ['PUT', 'POST', 'GET']
@@ -40,7 +45,11 @@ function startDisposableDaemons (callback) {
           return cb(err)
         }
 
-        nodes[key].startDaemon(['--enable-pubsub-experiment'], cb)
+        if (process.env.TEST_PUBSUB) {
+          nodes[key].startDaemon(['--enable-pubsub-experiment'], cb)
+        } else {
+          nodes[key].startDaemon([], cb)
+        }
       })
     })
   }

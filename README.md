@@ -137,7 +137,12 @@ $ ipfs config --json API.HTTPHeaders.Access-Control-Allow-Methods "[\"PUT\", \"P
 
 ### API
 
-> `js-ipfs-api` follows the spec defined by [`interface-ipfs-core`](https://github.com/ipfs/interface-ipfs-core), which concerns the interface to expect from IPFS implementations. This interface is a currently active endeavor - expect it to be complete in the next few weeks (August 2016). You can use it today to consult the methods available.
+> `js-ipfs-api` follows the spec defined by [`interface-ipfs-core`](https://github.com/ipfs/interface-ipfs-core), which concerns the interface to expect from IPFS implementations. . You can use it today to consult the methods available.
+
+### Caveats
+
+- [Currently, the PubSub API only works in Node.js envinroment](https://github.com/ipfs/js-ipfs-api/issues/518)
+
 
 ### Utility functions
 

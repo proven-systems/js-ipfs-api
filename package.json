@@ -62,7 +62,6 @@
     "chai": "^3.5.0",
     "eslint-plugin-react": "^6.9.0",
     "gulp": "^3.9.1",
-    "ipfsd-ctl": "^0.18.0",
     "pre-commit": "^1.2.2",
     "socket.io": "^1.7.2",
     "socket.io-client": "^1.7.2",
