@@ -1,0 +1,25 @@
+ansiColor('xterm') {
+	node {
+		def VERSION = "latest"
+		stage("Checkout") {
+			checkout scm
+			VERSION = sh(returnStdout: true, script: "git rev-parse HEAD").trim()
+		}
+		
+		stage("Build") {
+			sh "docker build -f ci/Dockerfile -t quay.io/ipfs/js-ipfs-api:$VERSION ."
+		}
+		stage("Tests") {
+			parallel nodejs: {
+				node {
+					sh "docker run quay.io/ipfs/js-ipfs-api:$VERSION npm run test:node"
+				}
+			},
+			browser: {
+				node {
+					sh "docker run --privileged quay.io/ipfs/js-ipfs-api:$VERSION npm run test:browser"
+				}
+			}
+		}
+	}
+}
