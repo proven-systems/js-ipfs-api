@@ -3,8 +3,11 @@
 const promisify = require('promisify-es6')
 const EventEmitter = require('events')
 const eos = require('end-of-stream')
+const isNode = require('detect-node')
 const PubsubMessageStream = require('../pubsub-message-stream')
 const stringlistToArray = require('../stringlist-to-array')
+
+const NotSupportedError = () => new Error('pubsub is currently not supported when run in the browser')
 
 /* Public API */
 module.exports = (send) => {
@@ -28,6 +31,14 @@ module.exports = (send) => {
         options = defaultOptions
       }
 
+      // Throw an error if ran in the browsers
+      if (!isNode) {
+        if (!callback) {
+          return Promise.reject(NotSupportedError())
+        }
+        return callback(NotSupportedError())
+      }
+
       // promisify doesn't work as we always pass a
       // function as last argument (`handler`)
       if (!callback) {
@@ -43,7 +54,11 @@ module.exports = (send) => {
 
       subscribe(topic, options, handler, callback)
     },
-    unsubscribe (topic, handler) {
+    unsubscribe: (topic, handler) => {
+      if (!isNode) {
+        throw NotSupportedError()
+      }
+
       if (ps.listenerCount(topic) === 0 || !subscriptions[topic]) {
         throw new Error(`Not subscribed to '${topic}'`)
       }
@@ -57,6 +72,10 @@ module.exports = (send) => {
       }
     },
     publish: promisify((topic, data, callback) => {
+      if (!isNode) {
+        return callback(NotSupportedError())
+      }
+
       if (!Buffer.isBuffer(data)) {
         return callback(new Error('data must be a Buffer'))
       }
@@ -69,6 +88,10 @@ module.exports = (send) => {
       send(request, callback)
     }),
     ls: promisify((callback) => {
+      if (!isNode) {
+        return callback(NotSupportedError())
+      }
+
       const request = {
         path: 'pubsub/ls'
       }
@@ -76,6 +99,10 @@ module.exports = (send) => {
       send.andTransform(request, stringlistToArray, callback)
     }),
     peers: promisify((topic, callback) => {
+      if (!isNode) {
+        return callback(NotSupportedError())
+      }
+
       const request = {
         path: 'pubsub/peers',
         args: [topic]
