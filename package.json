@@ -63,6 +63,7 @@
     "aegir": "^10.0.0",
     "chai": "^3.5.0",
     "eslint-plugin-react": "^6.9.0",
+    "go-ipfs-dep": "^0.4.5",
     "gulp": "^3.9.1",
     "hapi": "^16.1.0",
     "interface-ipfs-core": "~0.24.1",
