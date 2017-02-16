@@ -3,8 +3,8 @@
 'use strict'
 
 const test = require('interface-ipfs-core')
-const FactoryClient = require('../factory/factory-client')
-const isNode = require('isNode')
+const FactoryClient = require('../ipfs-factory/client')
+const isNode = require('is-node')
 
 if (isNode && process.env.TEST_PUBSUB) {
   let fc
