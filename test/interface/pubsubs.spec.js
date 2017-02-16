@@ -4,9 +4,9 @@
 
 const test = require('interface-ipfs-core')
 const FactoryClient = require('../ipfs-factory/client')
-const isNode = require('is-node')
+const isNode = require('detect-node')
 
-if (isNode && process.env.TEST_PUBSUB) {
+if (isNode) {
   let fc
 
   const common = {

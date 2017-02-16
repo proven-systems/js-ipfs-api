@@ -1,8 +1,6 @@
 machine:
   node:
     version: stable
-  environment:
-    TEST_PUBSUB: true
 
 dependencies:
   pre:

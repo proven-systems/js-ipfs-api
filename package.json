@@ -11,7 +11,7 @@
   },
   "scripts": {
     "test": "gulp test",
-    "test:node": "TEST_PUBSUB=true gulp test:node",
+    "test:node": "gulp test:node",
     "test:browser": "gulp test:browser",
     "lint": "aegir-lint",
     "build": "gulp build",
@@ -68,7 +68,6 @@
     "hapi": "^16.1.0",
     "interface-ipfs-core": "github:ipfs/interface-ipfs-core#fix\/pubsub-tests",
     "ipfsd-ctl": "~0.18.2",
-    "is-node": "^1.0.2",
     "pre-commit": "^1.2.2",
     "socket.io": "^1.7.2",
     "socket.io-client": "^1.7.2",
