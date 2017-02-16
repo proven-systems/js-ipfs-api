@@ -1,6 +1,8 @@
 machine:
   node:
     version: stable
+  environment:
+    TEST_PUBSUB: true
 
 dependencies:
   pre:
@@ -10,4 +12,3 @@ dependencies:
     - sudo apt-get update
     - sudo apt-get --only-upgrade install google-chrome-stable
     - google-chrome --version
-    - export TEST_PUBSUB=true
