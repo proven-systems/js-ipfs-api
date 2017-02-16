@@ -67,6 +67,7 @@
     "hapi": "^16.1.0",
     "interface-ipfs-core": "~0.24.1",
     "ipfsd-ctl": "~0.18.2",
+    "is-node": "^1.0.2",
     "pre-commit": "^1.2.2",
     "socket.io": "^1.7.2",
     "socket.io-client": "^1.7.2",
