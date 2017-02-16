@@ -18,7 +18,7 @@ before_install:
 
 script:
   - npm run lint
-  - npm run test
+  - TEST_PUBSUB=true npm run test
   - npm run coverage
 
 before_script:
