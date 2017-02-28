@@ -14,6 +14,8 @@ ipfs-api
 
 [![Sauce Test Status](https://saucelabs.com/browser-matrix/js-ipfs-api.svg)](https://saucelabs.com/u/ipfs-js-api)
 
+> This is a fork of the original IPFS JS API repo. I've added timeouts for an active project. I understand IPFS timeouts are still being discussed in the main projects, but I couldn't wait. I don't expect this code to be merged.
+
 > **Note: If you see CI red, that is due a failing test when adding nested directories in the browser, all the other features work as expect, if this is something you also need, please consider helping us identifying the solution for it, join the discussion at: https://github.com/ipfs/js-ipfs-api/issues/339**
 
 > A client library for the IPFS HTTP API, implemented in JavaScript. This client library implements the [interface-ipfs-core](https://github.com/ipfs/interface-ipfs-core) enabling applications to change between a embebed js-ipfs node and any remote IPFS node without having to change the code. In addition, this client library implements a set of utility functions.
