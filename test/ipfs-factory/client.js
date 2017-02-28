@@ -5,7 +5,9 @@ const ipfsAPI = require('../../src')
 
 module.exports = Factory
 
-function Factory () {
+function Factory (ipfsOptions) {
+  const options = ipfsOptions || {}
+
   if (!(this instanceof Factory)) {
     return new Factory()
   }
@@ -40,7 +42,7 @@ function Factory () {
 
     function spawnNode () {
       ioC.once('fc-node', (apiAddr) => {
-        const ipfs = ipfsAPI(apiAddr)
+        const ipfs = ipfsAPI(apiAddr, options)
         ipfs.apiAddr = apiAddr
         callback(null, ipfs)
       })

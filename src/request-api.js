@@ -120,6 +120,16 @@ function requestAPI (config, options, callback) {
     headers: headers
   }, onRes(options.buffer, callback))
 
+  if (config.timeout) {
+    req.on('socket', (socket) => {
+      socket.setTimeout(config.timeout)
+      socket.on('timeout', () => {
+        req.abort()
+        callback(new Error('IPFS request timed out'))
+      })
+    })
+  }
+
   req.on('error', (err) => {
     callback(err)
   })
