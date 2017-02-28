@@ -57,7 +57,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ipfs/js-ipfs-api"
+    "url": "https://github.com/proven-system/js-ipfs-api"
   },
   "devDependencies": {
     "aegir": "^10.0.0",
@@ -96,6 +96,7 @@
     "Harlan T Wood <code@harlantwood.net>",
     "Holodisc <holodiscent@gmail.com>",
     "James Halliday <substack@gmail.com>",
+    "Jamie Hale <jamie@smallarmyofnerds.com>",
     "Jason Carver <jacarver@linkedin.com>",
     "Jeff Downie <JeffDownie@users.noreply.github.com>",
     "Jeromy <why@ipfs.io>",
@@ -121,7 +122,7 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ipfs/js-ipfs-api/issues"
+    "url": "https://github.com/proven-systems/js-ipfs-api/issues"
   },
-  "homepage": "https://github.com/ipfs/js-ipfs-api"
+  "homepage": "https://github.com/proven-systems/js-ipfs-api"
 }
